@@ -95,8 +95,8 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                     provinceAdapter.notifyDataSetChanged();
                     listView.setAdapter(provinceAdapter);
                     ////////////
-                    if (isNull){
-                        proviceItem(getLocalItem(provinces,q1));
+                    if (isNull) {
+                        proviceItem(getLocalItem(provinces, q1));
                     }
                     break;
 
@@ -113,8 +113,8 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                         callbackInternal();
                     }
                     //////////
-                    if (isNull){
-                        cityItem(getLocalItem(cities,q2));
+                    if (isNull) {
+                        cityItem(getLocalItem(cities, q2));
                     }
                     break;
 
@@ -128,8 +128,8 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                         callbackInternal();
                     }
                     ///////////////////
-                    if (isNull){
-                        countItem(getLocalItem(counties,q3));
+                    if (isNull) {
+                        countItem(getLocalItem(counties, q3));
                     }
                     break;
 
@@ -142,9 +142,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                     } else {
                         callbackInternal();
                     }
-                    if (isNull){
-                        if (Lists.notEmpty(streets)&&!TextUtils.isEmpty(q4)){
-                            streetItem(getLocalItem(streets,q4));
+                    if (isNull) {
+                        if (Lists.notEmpty(streets) && !TextUtils.isEmpty(q4)) {
+                            streetItem(getLocalItem(streets, q4));
                         }
                     }
                     break;
@@ -157,9 +157,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                     } else {
                         callbackInternal();
                     }
-                    if (isNull){
-                        if (Lists.notEmpty(br5)&&!TextUtils.isEmpty(q5)){
-                            br5Item(getLocalItem(br5,q5));
+                    if (isNull) {
+                        if (Lists.notEmpty(br5) && !TextUtils.isEmpty(q5)) {
+                            br5Item(getLocalItem(br5, q5));
                         }
                     }
                     break;
@@ -172,9 +172,9 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
                     } else {
                         callbackInternal();
                     }
-                    if (isNull){
-                        if (Lists.notEmpty(br6)&&!TextUtils.isEmpty(q6)){
-                            br6Item(getLocalItem(br6,q6));
+                    if (isNull) {
+                        if (Lists.notEmpty(br6) && !TextUtils.isEmpty(q6)) {
+                            br6Item(getLocalItem(br6, q6));
                         }
                     }
                     break;
@@ -182,20 +182,21 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
             updateTabsVisibility();
             updateProgressVisibility();
             updateIndicator();
-            Timer timer=new Timer();
+            Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
                 }
-            },100L);
+            }, 100L);
 
             return true;
         }
     });
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (isNull){
+        if (isNull) {
             isNull = false;
         }
         switch (tabIndex) {
@@ -360,7 +361,7 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
     public AddressSelector(Context context, String p1, String p2, String p3, String p4, String p5, String p6) {
         this.mContext = context;
         inflater = LayoutInflater.from(context);
-        if (!TextUtils.isEmpty(p1)){
+        if (!TextUtils.isEmpty(p1)) {
             this.q1 = p1;
             this.q2 = p2;
             this.q3 = p3;
@@ -570,14 +571,41 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
     }
 
     private void callbackInternal() {
+//        String address = null;
+        String id = null;
         if (listener != null) {
             Brdb province = provinces == null || provinceIndex == INDEX_INVALID ? null : provinces.get(provinceIndex);
             Brdb city = cities == null || cityIndex == INDEX_INVALID ? null : cities.get(cityIndex);
             Brdb county = counties == null || countyIndex == INDEX_INVALID ? null : counties.get(countyIndex);
             Brdb street = streets == null || streetIndex == INDEX_INVALID ? null : streets.get(streetIndex);
-            Brdb brdb5 = br5 == null || br5Index == INDEX_INVALID ? null : br5.get(br5Index);
-            Brdb brdb6 = br6 == null || br6Index == INDEX_INVALID ? null : br6.get(br6Index);
-            listener.onAddressSelected(province, city, county, street, brdb5, brdb6);
+            Brdb Brdb5 = br5 == null || br5Index == INDEX_INVALID ? null : br5.get(br5Index);
+            Brdb Brdb6 = br6 == null || br6Index == INDEX_INVALID ? null : br6.get(br6Index);
+            StringBuffer stringBuffer = new StringBuffer();
+            if (province != null) {
+                stringBuffer.append(province.DistrictName);
+                id = province.DistrictNo;
+            }
+            if (city != null) {
+                stringBuffer.append(city.DistrictName);
+                id = city.DistrictNo;
+            }
+            if (county != null) {
+                stringBuffer.append(county.DistrictName);
+                id = county.DistrictNo;
+            }
+            if (street != null) {
+                stringBuffer.append(street.DistrictName);
+                id = street.DistrictNo;
+            }
+            if (Brdb5 != null) {
+                stringBuffer.append(Brdb5.DistrictName);
+                id = Brdb5.DistrictNo;
+            }
+            if (Brdb6 != null) {
+                stringBuffer.append(Brdb6.DistrictName);
+                id = Brdb6.DistrictNo;
+            }
+            listener.onAddressSelected(stringBuffer.toString(), id);
         }
     }
 
