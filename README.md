@@ -1,6 +1,6 @@
 # JDAddressSelector
 级联地址选择器。
-![image](https://github.com/chihane/JDAddressSelector/raw/master/screenshots/aa4.jpg)
+![image](https://github.com/eric-zhang-dev/AddressSelector/tree/master/screenshots/aa4.jpg)
 
 ## 添加依赖
 
