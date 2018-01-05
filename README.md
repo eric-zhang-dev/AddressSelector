@@ -12,7 +12,7 @@
             maven { url "https://jitpack.io"}
         }
     }
-
+[dbflow教程](https://yumenokanata.gitbooks.io/dbflow-tutorials/content/tables_and_database_properties.html)
     
 ## 使用方法
         1
