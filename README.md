@@ -12,7 +12,6 @@
             maven { url "https://jitpack.io"}
         }
     }
-![dbflow教程](https://yumenokanata.gitbooks.io/dbflow-tutorials/content/tables_and_database_properties.html)
     
 ## 使用方法
         1
@@ -36,8 +35,11 @@
                 T.showShort(this, address + "---->" + id);
             }
     
-## 关于我
---
+#### 相关依赖
+
+- **com.android.support**：Google官方适配包，用于提供卡片、列表、主题等基础模块
+- **com.google.code.gson**：Json-Model解析库
+- **com.github.Raizlabs.DBFlow**:数据库  [dbflow教程](https://yumenokanata.gitbooks.io/dbflow-tutorials/content/tables_and_database_properties.html)
 
 ## 许可证
 --
