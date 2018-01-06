@@ -24,7 +24,7 @@
         buttonBottomDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               ~~ BottomDialog.show(MainActivity.this, MainActivity.this);~~
+               ~~BottomDialog.show(MainActivity.this, MainActivity.this);~~
                 BottomDialog dialog = new BottomDialog(MainActivity.this, "江苏省", "苏州市", "吴中区", "越溪街道", "越溪管理区", "木林社区");
                 dialog.setOnAddressSelectedListener(MainActivity.this);
                 dialog.show();
