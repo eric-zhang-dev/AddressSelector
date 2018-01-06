@@ -12,7 +12,7 @@
             maven { url "https://jitpack.io"}
         }
     }
-[dbflow教程](https://yumenokanata.gitbooks.io/dbflow-tutorials/content/tables_and_database_properties.html)
+![dbflow教程](https://yumenokanata.gitbooks.io/dbflow-tutorials/content/tables_and_database_properties.html)
     
 ## 使用方法
         1
@@ -30,10 +30,11 @@
                 dialog.show();
             }
         });
-    @Override
-    public void onAddressSelected(String address, String id) {
-        T.showShort(this, address + "---->" + id);
-    }
+        3
+            @Override
+            public void onAddressSelected(String address, String id) {
+                T.showShort(this, address + "---->" + id);
+            }
     
 ## 关于我
 --
