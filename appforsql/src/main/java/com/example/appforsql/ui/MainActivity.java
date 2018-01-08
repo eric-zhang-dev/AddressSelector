@@ -2,6 +2,7 @@ package com.example.appforsql.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,7 +14,10 @@ import com.example.appforsql.db.DBManager;
 import com.example.appforsql.pojo.Distinct;
 import com.example.appforsql.utils.SharedUtils;
 
+import org.json.JSONObject;
+
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private DBManager<Distinct> dbManager;
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    private OnAddressSelectedListener.onFullAddress addressSelectedListener = new OnAddressSelectedListener.onFullAddress() {
+    private OnAddressSelectedListener addressSelectedListener = new OnAddressSelectedListener() {
         @Override
         public void onFulldAddress(Distinct arg0, Distinct arg1, Distinct arg2, Distinct arg3, Distinct arg4, Distinct arg5) {
             if (arg0!=null){

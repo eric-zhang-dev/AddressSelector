@@ -82,9 +82,9 @@ public class AddressDialog extends Dialog implements AdapterView.OnItemClickList
     private int tabIndex = INDEX_TAB_PROVINCE;
     private String sql;
     private HorizontalScrollView scrollView;
-    private OnAddressSelectedListener.onFullAddress mAddressSelectedListener;
+    private OnAddressSelectedListener mAddressSelectedListener;
 
-    public AddressDialog(Activity context, OnAddressSelectedListener.onFullAddress addressSelectedListener) {
+    public AddressDialog(Activity context, OnAddressSelectedListener addressSelectedListener) {
         super(context, R.style.bottom_dialog);
         this.mContext = context;
         this.mAddressSelectedListener = addressSelectedListener;
@@ -194,17 +194,17 @@ public class AddressDialog extends Dialog implements AdapterView.OnItemClickList
             switch (view.getId()){
                 case R.id.ok:
                     if (mAddressSelectedListener != null) {
-                        Distinct province = privaceList == null || provinceIndex == INDEX_INVALID ? null : privaceList.get(provinceIndex);
-                        Distinct city = shiList == null || cityIndex == INDEX_INVALID ? null : shiList.get(cityIndex);
-                        Distinct county = areaList == null || countyIndex == INDEX_INVALID ? null : areaList.get(countyIndex);
-                        Distinct street = streetList == null || streetIndex == INDEX_INVALID ? null : streetList.get(streetIndex);
-                        Distinct brdb5 = xiangcunList == null || br5Index == INDEX_INVALID ? null : xiangcunList.get(br5Index);
-                        Distinct brdb6 = guanliList == null || br6Index == INDEX_INVALID ? null : guanliList.get(br6Index);
-                        if (county==null){
+                        Distinct address0 = privaceList == null || provinceIndex == INDEX_INVALID ? null : privaceList.get(provinceIndex);
+                        Distinct address1 = shiList == null || cityIndex == INDEX_INVALID ? null : shiList.get(cityIndex);
+                        Distinct address2 = areaList == null || countyIndex == INDEX_INVALID ? null : areaList.get(countyIndex);
+                        Distinct address3 = streetList == null || streetIndex == INDEX_INVALID ? null : streetList.get(streetIndex);
+                        Distinct address4 = xiangcunList == null || br5Index == INDEX_INVALID ? null : xiangcunList.get(br5Index);
+                        Distinct address5 = guanliList == null || br6Index == INDEX_INVALID ? null : guanliList.get(br6Index);
+                        if (address2==null){
                             Toast.makeText(mContext,"亲,至少选择三级地址哦",Toast.LENGTH_LONG).show();
                             return;
                         }
-                        mAddressSelectedListener.onFulldAddress(province, city, county, street, brdb5, brdb6);
+                        mAddressSelectedListener.onFulldAddress(address0, address1, address2, address3, address4, address5);
                         dismiss();}
                     break;
                 case R.id.cancel:
@@ -826,6 +826,12 @@ public class AddressDialog extends Dialog implements AdapterView.OnItemClickList
             Distinct address3 = streetList == null || streetIndex == INDEX_INVALID ? null : streetList.get(streetIndex);
             Distinct address4 = xiangcunList == null || br5Index == INDEX_INVALID ? null : xiangcunList.get(br5Index);
             Distinct address5 = guanliList == null || br6Index == INDEX_INVALID ? null : guanliList.get(br6Index);
+//            String address = null,no = null;
+//            if (address0!=null){
+//                address = address0.getDistrictFullName();
+//                no = address0.getDistrictNo();
+//            }
+//            mAddressSelectedListener.onAddress(address,no);
             mAddressSelectedListener.onFulldAddress(address0, address1, address2, address3, address4, address5);
             dismiss();
         }
