@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="取消"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="选择地区"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="15dp"
+                android:text="确定"
+                android:textColor="#000"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f3f3f3"></View>
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/layout_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:id="@+id/tv_1"
+                        style="@style/tab" />
+
+                    <TextView
+                        android:id="@+id/tv_2"
+                        style="@style/tab" />
+
+                    <TextView
+                        android:id="@+id/tv_3"
+                        style="@style/tab" />
+
+                    <TextView
+                        android:id="@+id/tv_4"
+                        style="@style/tab" />
+
+                    <TextView
+                        android:id="@+id/tv_5"
+                        style="@style/tab" />
+
+                    <TextView
+                        android:id="@+id/tv_6"
+                        style="@style/tab" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/layout_tab"
+                    android:background="@color/colorPrimary" />
+            </RelativeLayout>
+        </HorizontalScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f3f3f3"></View>
+
+        <LinearLayout
+            android:id="@+id/pop_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/local_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:divider="#f3f3f3"
+                android:dividerHeight="0.1dip"
+                android:listSelector="#fff" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
