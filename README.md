@@ -1,4 +1,5 @@
 # JDAddressSelector
+app ---> dbflow           appforsql ---> native code
 级联地址选择器。
 ![image](https://raw.githubusercontent.com/eric-zhang-dev/AddressSelector/master/screenshots/aa4.png)
 
