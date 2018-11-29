@@ -488,7 +488,6 @@ public class AddressSelector implements AdapterView.OnItemClickListener {
             if (provinceIndex != INDEX_INVALID) {
                 listView.setSelection(provinceIndex);
             }
-
             updateTabsVisibility();
             updateIndicator();
         }

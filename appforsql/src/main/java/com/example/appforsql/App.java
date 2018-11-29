@@ -16,7 +16,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-//        new Thread(init).start();
+        new Thread(init).start();
     }
 
     private Runnable init = new Runnable() {

@@ -55,7 +55,6 @@ public class BottomDialog extends Dialog {
         BottomDialog dialog = new BottomDialog(context, R.style.bottom_dialog);
         dialog.selector.setOnAddressSelectedListener(listener);
         dialog.show();
-
         return dialog;
     }
 }
