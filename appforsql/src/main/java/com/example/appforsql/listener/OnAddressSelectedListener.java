@@ -16,6 +16,5 @@ public interface OnAddressSelectedListener {
 
     void onFulldAddress(Distinct arg0, Distinct arg1, Distinct arg2, Distinct arg3, Distinct arg4, Distinct arg5);
 
-//    void onFulldAddress(Distinct... arg0);
-//    }
+//    void onFulldAddress2(Distinct... distincts);
 }
